@@ -11,11 +11,12 @@
         href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
         rel="stylesheet">
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles/style.css">
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/jpg" href="./assets/icono.png" />
+    <!-- ICONOS FOOTER -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>¡Bienvenidos!</title>
 </head>
 
@@ -32,10 +33,26 @@
             <a href="./pages/farmacia.html">Farmacia</a>
             <a href="./pages/juguetes.html">Juguetes</a>
             <a href="./pages/contacto.html">Contacto</a>
-            <a href="" id="myBtn"><img class="carroC" src="./assets/carrito.png" alt="">
+            <a href="" id="botonCarro"><img class="carroC" src="./assets/carrito.png" alt="">
                 <div class="cantCarro" id="cantCarroNav"></div>
             </a>
         </nav>
+    </div>
+
+
+    <div id="ventanaCarrito" class="carrito">
+        <div class="carrito-content">
+            <div id="carrito">
+                <!-- PRODUCTOS DEL CARRITO -->
+            </div>
+        </div>
+        <div class="carritoTotal">
+            <span class="cerrar" id="cerrar">&times;</span>
+            <p class="titulo2">Total:</p>
+            <p id="totalCarrito" class="precio">precio</p>
+            <button class="finalizar" id="finalizarCompra">Finalizar compra</button>
+            <button class="vaciar" id="vaciarCarro">Vaciar carrito</button>
+        </div>
     </div>
 
 
@@ -44,23 +61,17 @@
     </header>
 
     <main class="index" id="mainIndex">
-
         <h1>¡Guau guau guau! <br> No te preocupes, nosotros los entendemos.</h1>
-
         <section class="nosotros mw-l">
             <div class="texto-img">
                 <div class="texto">
                     <h3>En Franco somos amantes de los animales.</h3>
-
                 </div>
                 <div class="img">
-                    <div class="img2">
-
-                    </div>
+                    <div class="img2"></div>
                 </div>
             </div>
         </section>
-
         <section class="ubicacion">
             <h2 class="titulo1" id="tituloUbi">¡Estamos más cerca de lo que te imaginas!</h2>
             <div class="texto-mapa1" id="mapa">
@@ -76,7 +87,6 @@
                 </div>
             </div>
         </section>
-        <!-- <a href=""></a> -->
         <section class="productos " id="producto">
             <h2>Algunos de nuestros productos</h2>
             <div class="muestra" id="muestra">
@@ -86,85 +96,40 @@
                 <button>¡Conocé más en nuestra tienda!</button>
             </a>
         </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="ventanaCarrito" class="carrito">
-            <div class="carrito-content">
-                <div id="carrito">
-                    <!-- PRODUCTOS DEL CARRITO -->
-                </div>
-            </div>
-            <div class="carritoTotal">
-                    <span class="cerrar" id="cerrar">&times;</span>
-                    <p class="titulo2">Total:</p>
-                    <p id="totalCarrito" class="precio">precio</p>
-                    <button class="finalizar" id="finalizarCompra">Finalizar compra</button>
-                    <button class="vaciar" id="vaciarCarro">Vaciar carrito</button>
-                </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
 
     <footer>
-        <div class="mw-l">
+        <div class=" piePag mw-l">
             <ul>
                 <li><strong>Información</strong></li>
-                <li>Farmacia</li>
-                <li>Juguetes</li>
-                <li>Contacto</li>
-                <li>Carrito de compras</li>
+                <br>
+                <li><a href="./pages/farmacia.html">Farmacia</a></li>
+                <li><a href="./pages/juguetes.html">Juguetes</a></li>
+                <li><a href="./pages/contacto.html">Contacto</a></li>
             </ul>
             <ul>
                 <li><strong>Sobre nosotros</strong></li>
-                <li>¿Quienes somos?</li>
-                <li>¿Donde estamos?</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <br>
+                <li><a href="#tituloUbi">¿Quienes somos?</a></li>
+                <li><a href="#tituloUbi">¿Donde estamos?</a></li>
             </ul>
             <ul>
                 <li><strong>Contactanos</strong></li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <br>
+                <li><i class="fas fa-phone-alt"></i> 0800-333-4826</li>
+                <li><i class="fas fa-map-marker-alt"></i> Rio de Janeiro 300</li>
+            </ul>
+            <ul>
+                <li><strong>Redes sociales</strong></li>
+                <br>
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
+        <span class="copyrigth">&copy; Copyrigth - Todos los derechos reservados Lucas Cabezas</span>
     </footer>
 
-
-
     <script src="./scripts/script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>

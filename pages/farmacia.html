@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="../styles/style.css">
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/jpg" href="../assets/icono.png" />
+    <!-- ICONOS FOOTER -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Farmacia</title>
 </head>
 
@@ -31,15 +34,32 @@
             <a href="#">Farmacia</a>
             <a href="./juguetes.html">Juguetes</a>
             <a href="./contacto.html">Contacto</a>
-            <a href="" id="myBtn">
+            <a href="" id="botonCarro">
                 <img class="carroC" src="../assets/carrito.png" alt="">
                 <div class="cantCarro" id="cantCarroNav"></div>
             </a>
         </nav>
     </div>
 
+    <div id="ventanaCarrito" class="carrito">
+
+        <div class="carrito-content">
+            <div id="carrito">
+
+            </div>
+        </div>
+        <div class="carritoTotal">
+            <span class="cerrar" id="cerrar">&times;</span>
+            <p class="titulo2">Total:</p>
+            <p id="totalCarrito" class="precio">precio</p>
+            <button class="finalizar" id="finalizarCompra">Finalizar compra</button>
+            <button class="vaciar" id="vaciarCarro">Vaciar carrito</button>
+        </div>
+    </div>
+
     <header class="headerFarmacia">
     </header>
+
     <main class="farmacia" id="mainFarmacia">
         <aside class="filtros">
             <h2>Farmacia</h2>
@@ -49,91 +69,37 @@
 
             </section>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-        <div id="ventanaCarrito" class="carrito">
-            
-            <div class="carrito-content">
-                <div id="carrito">
-                    
-                </div>
-            </div>
-            <div class="carritoTotal">
-                    <span class="cerrar" id="cerrar">&times;</span>
-                    <p class="titulo2">Total:</p>
-                    <p id="totalCarrito" class="precio">precio</p>
-                    <button class="finalizar" id="finalizarCompra">Finalizar compra</button>
-                    <button class="vaciar" id="vaciarCarro">Vaciar carrito</button>
-                </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
+
+
+
     <footer>
-        <div class="mw-l">
+        <div class="piePag mw-l">
             <ul>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <li><strong>Información</strong></li>
+                <li><a href="#">Farmacia</a></li>
+                <li><a href="./juguetes.html">Juguetes</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
             </ul>
             <ul>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <li><strong>Sobre nosotros</strong></li>
+                <li><a href="../index.html#tituloUbi">¿Quienes somos?</a></li>
+                <li><a href="../index.html#tituloUbi">¿Donde estamos?</a></li>
             </ul>
             <ul>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <li><strong>Contactanos</strong></li>
+                <li><i class="fas fa-phone-alt"></i> 0800-333-4826</li>
+                <li><i class="fas fa-map-marker-alt"></i> Rio de Janeiro 300</li>
+            </ul>
+            <ul>
+                <li><strong>Redes sociales</strong></li>
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
+        <span class="copyrigth">&copy; Copyrigth - Todos los derechos reservados Lucas Cabezas</span>
     </footer>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <script src="../scripts/script.js"></script>
-
 </body>
-
 </html>

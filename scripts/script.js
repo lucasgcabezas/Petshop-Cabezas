@@ -80,7 +80,7 @@ function iniciarPrograma(todosLosProductos) {
     function mostrarModal() {
 
         var carritoModal = document.getElementById("ventanaCarrito")
-        var btn = document.getElementById("myBtn")
+        var btn = document.getElementById("botonCarro")
         var span = document.getElementById("cerrar")
 
 
@@ -116,7 +116,7 @@ function iniciarPrograma(todosLosProductos) {
                 </div>
                 <div class="texto">
                     <span>${producto.nombre}</span>
-                    <a href="" id="btnDescripcion${producto._id}">Ver más...</a>
+                    <a href="" class="btnDescripcion" id="btnDescripcion${producto._id}">Ver más...</a>
                 </div>
                 <span class="precio">$ ${(producto.precio).toFixed(2)}</span>
                 <button class="btnC" id="btnC${producto._id}">Agregar al carrito</button>

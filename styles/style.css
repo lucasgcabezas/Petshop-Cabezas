@@ -708,6 +708,10 @@ color: var(--fcolor);
     padding: 10px;
 }
 
+.productoGondola .btnDescripcion {
+    text-decoration: none;
+}
+
 .productoGondola .btnC {
     height: 50px;
     width: 60%;
@@ -818,10 +822,11 @@ color: var(--fcolor);
 
 
 footer {
-    height: 30vh;
+    height: 35vh;
     background-color: var(--fcolor);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center
 }
 
@@ -835,6 +840,19 @@ footer div * {
     color: white;
     list-style: none;
 
+}
+
+footer {
+    color: white;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: var(--scolor);
 }
 
 .mw-l {

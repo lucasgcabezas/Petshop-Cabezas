@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap"
+        rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="../styles/style.css">
-      <!-- FAVICON -->
-      <link rel="shortcut icon" type="image/jpg" href="../assets/icono.png"/>
-
+    <!-- FAVICON -->
+    <link rel="shortcut icon" type="image/jpg" href="../assets/icono.png" />
+    <!-- ICONOS FOOTER -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>Contacto</title>
 </head>
 
@@ -28,15 +33,32 @@
             <a href="./farmacia.html">Farmacia</a>
             <a href="./juguetes.html">Juguetes</a>
             <a href="#">Contacto</a>
-            <a href="" id="myBtn"><img class="carroC" src="../assets/carrito.png" alt="">
+            <a href="" id="botonCarro"><img class="carroC" src="../assets/carrito.png" alt="">
                 <div class="cantCarro" id="cantCarroNav"></div>
             </a>
         </nav>
     </div>
 
+    <div id="ventanaCarrito" class="carrito">
+
+        <div class="carrito-content">
+            <div id="carrito">
+
+            </div>
+        </div>
+        <div class="carritoTotal">
+            <span class="cerrar" id="cerrar">&times;</span>
+            <p class="titulo2">Total:</p>
+            <p id="totalCarrito" class="precio">precio</p>
+            <button class="finalizar" id="finalizarCompra">Finalizar compra</button>
+            <button class="vaciar" id="vaciarCarro">Vaciar carrito</button>
+        </div>
+    </div>
+
+
     <header class="headerContacto">
     </header>
-    
+
     <main class="mainContacto" id="mainContacto">
         <div class="formulario">
             <div class="titulo">
@@ -46,83 +68,55 @@
             <form action="" id="formulario">
                 <input type="text" placeholder="Nombre" id="nombre" required>
                 <input type="text" placeholder="Apellido" id="apellido" required>
-                <input type="number" id="numero" placeholder="Teléfono (opcional)" >
+                <input type="number" id="numero" placeholder="Teléfono (opcional)">
                 <input type="email" placeholder="Email" id="mail">
                 <div class="check-text">
-                <!-- checked revisar required -->
+                    <!-- checked revisar required -->
                     <div>
                         <input type="checkbox" id="perro" name="especie"><label for="perro">Perro</label>
                         <input type="checkbox" id="gato" name="especie"><label for="gato">Gato</label>
                         <input type="checkbox" id="otro" name="especie"><label for="otro">Otro</label>
                     </div>
-                    <input type="text" placeholder="En caso de ser otro mencione cual" >
+                    <input type="text" placeholder="En caso de ser otro mencione cual">
                 </div>
-                <input type="text" placeholder="Nombre/s de su mascota/s (opcional)"  id="nombreMascota">
-                <p><textarea name="mensaje" placeholder="Dejanos tu mensaje!" class="textarea" id="mensaje"></textarea></p>
+                <input type="text" placeholder="Nombre/s de su mascota/s (opcional)" id="nombreMascota">
+                <p><textarea name="mensaje" placeholder="Dejanos tu mensaje!" class="textarea" id="mensaje"></textarea>
+                </p>
                 <!-- <input type="submit" name="" id="formBtn" value="Enviar" class="boton"> -->
                 <button id="formBtn" class="boton">Enviar</button>
             </form>
         </div>
-
-
-        <div id="ventanaCarrito" class="carrito">
-            
-            <div class="carrito-content">
-                <div id="carrito">
-                    
-                </div>
-            </div>
-            <div class="carritoTotal">
-                    <span class="cerrar" id="cerrar">&times;</span>
-                    <p class="titulo2">Total:</p>
-                    <p id="totalCarrito" class="precio">precio</p>
-                    <button class="finalizar" id="finalizarCompra">Finalizar compra</button>
-                    <button class="vaciar" id="vaciarCarro">Vaciar carrito</button>
-                </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
     </main>
+
     <footer>
-        <div class="mw-l">
+        <div class="piePag mw-l">
             <ul>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <li><strong>Información</strong></li>
+                <li><a href="./farmacia.html">Farmacia</a></li>
+                <li><a href="./juguetes.html">Juguetes</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
             <ul>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <li><strong>Sobre nosotros</strong></li>
+                <li><a href="../index.html#tituloUbi">¿Quienes somos?</a></li>
+                <li><a href="../index.html#tituloUbi">¿Donde estamos?</a></li>
             </ul>
             <ul>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
-                <li>Pie de pagina</li>
+                <li><strong>Contactanos</strong></li>
+                <li><i class="fas fa-phone-alt"></i> 0800-333-4826</li>
+                <li><i class="fas fa-map-marker-alt"></i> Rio de Janeiro 300</li>
+            </ul>
+            <ul>
+                <li><strong>Redes sociales</strong></li>
+                <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                <li><a href=""><i class="fab fa-instagram"></i></a></li>
             </ul>
         </div>
+        <span class="copyrigth">&copy; Copyrigth - Todos los derechos reservados Lucas Cabezas</span>
     </footer>
-    <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script> -->
+
     <script src="../tata-master/dist/tata.js"></script>
-
     <script src="../scripts/script.js"></script>
-
-
 </body>
+
 </html>
