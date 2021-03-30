@@ -58,9 +58,15 @@
     <header class="headerJuguetes">
     </header>
 
-    <main class="farmacia" id="mainJuguetes">
+    <main class="farmaciayjuguetes" id="mainJuguetes">
         <aside class="filtros">
             <h2>Juguetes</h2>
+            <select name="" id="selectorFiltro">
+                <option value="sinFiltro" selected disabled >Filtrar por</option>
+                <option value="normal">Predeterminado</option>
+                <option value="barato">Menor precio</option>
+                <option value="caro">Mayor precio</option>
+            </select>
         </aside>
         <div class="container">
             <section class="gondola" id="gondola">
@@ -96,6 +102,7 @@
         <span class="copyrigth">&copy; Copyrigth - Todos los derechos reservados Lucas Cabezas</span>
     </footer>
 
+    <script src="../tata-master/dist/tata.js"></script>
     <script src="../scripts/script.js"></script>
 </body>
 
