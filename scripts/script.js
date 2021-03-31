@@ -53,6 +53,8 @@ function iniciarPrograma(todosLosProductos) {
         carrito = JSON.parse(localStorage.getItem('carritoStorage'))
     }
 
+    // -----------------------------------------------------------------------------------HACER FUNCIONAL
+
     document.getElementById('btnNav').addEventListener('click',(e) => {
         document.getElementById('modalResponsive').className = 'modalResponsive2'
         document.getElementById('navResponsive').className = 'navResponsive2'
@@ -149,8 +151,7 @@ function iniciarPrograma(todosLosProductos) {
             const elemento = document.createElement('div')
             elemento.className = "productoGondola cara"
             elemento.innerHTML = `
-                <div class="img">
-                    <img src="${producto.imagen}" alt="${producto.nombre}">
+                <div class="img" id="imgG${producto._id}">
                 </div>
                 <div class="texto">
                     <span>${producto.nombre}</span>
@@ -167,6 +168,11 @@ function iniciarPrograma(todosLosProductos) {
                 <div>
             `
             document.querySelector("#gondola").appendChild(elemento)
+
+            document.getElementById("imgG" + producto._id).style.backgroundImage = `url("${producto.imagen}")`
+            // <img src="${producto.imagen}" alt="${producto.nombre}">
+
+
 
             // --Cartel de ultimas unicades
             if (producto.stock < 6 && producto.stock > 0) { document.getElementById("stock" + producto._id).style.display = 'block' }
@@ -212,7 +218,7 @@ function iniciarPrograma(todosLosProductos) {
     // VALIDACION DE FORMULARIO CONTACTO
     function validarForm() {
         document.querySelector('#formBtn').addEventListener('click', (e) => {
-
+// -----------------------------------------------------------------------------------------------------------------HACER FUNCIONAL
             // validar nombre con numeros
             let nombre = document.getElementById('nombre').value
             let nombreArray = Array.from(nombre)
@@ -248,6 +254,8 @@ function iniciarPrograma(todosLosProductos) {
                     return apellidoVerificado = false
                 }
             })
+
+            
 
             // Validar campos completados
             if ((nombre.length == 0
@@ -321,7 +329,6 @@ function iniciarPrograma(todosLosProductos) {
                     } else if (e.target.dataset.accion === 'r' && producto.cantidadCarro > 1) {
                         producto.cantidadCarro--
                         producto.precioCarro = producto.precio * producto.cantidadCarro
-
                     }
                     guardarStorage()
                     mostrarCarrito(carrito)
