@@ -816,7 +816,7 @@ color: var(--fcolor);
 .gondola .espalda .descripcion {
     width: 100%;
     height: 90%;
-    font-size: .95rem;
+    font-size: .85rem;
     transition: .5s;
 }
 
@@ -999,6 +999,8 @@ color: var(--fcolor);
     border: none;
     background-color: var(--fcolor);
     color: var(--scolor);
+    cursor: pointer;
+
 }
 
 .prodComprado .cantidadArt button:active {
@@ -1013,6 +1015,7 @@ color: var(--fcolor);
     background-color: var(--scolor);
     border-radius: 5px;
     font-size: inherit;
+    cursor: pointer;
     /* height: 15%; */
 }
 
