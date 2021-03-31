@@ -72,6 +72,9 @@ body{
     transition-duration: 1s;
 }
 
+.logo-nav .btnNav {
+    display: none;
+}
 
 .logo{
     height: 15rem;
@@ -139,6 +142,12 @@ body{
     transition: 0.3s;
 }
 
+
+
+.navResponsive1 a{
+    visibility: hidden;
+}
+
 /* -------------------------------------------------------ANIMACION DEL NAV ---------------------------  */
 
 .logo-nav .barraNav a:hover {
@@ -160,6 +169,10 @@ body{
     justify-content: space-between;
     align-items: center;
     
+}
+
+.scrollNav .btnNav {
+    display: none;
 }
 
 .scrollNav .logo{
@@ -315,7 +328,7 @@ body{
     opacity: 0;
     margin-top: 5vh;
     display: flex;
-    transition: 2.5s;
+    transition: 2s;
 
 }
 
@@ -323,7 +336,7 @@ body{
     opacity: 1;
     margin-top: 5vh;
     display: flex;
-    transition: 3s;
+    transition: 2s;
 }
 
 .mapa {
@@ -362,7 +375,7 @@ body{
 .ubicacion .texto button{
     height: 10vh;
     width: 25vw;
-
+    cursor: pointer;
     background-color: var(--scolor);
     border: none;
     color: var(--fcolor);
@@ -467,6 +480,7 @@ body{
     font-size: 1.3rem;
     font-weight: bold;
     box-shadow: 0px 2px 3px 2px rgba(0,0,0,0.26);   
+    cursor: pointer;
 }
 
 .productos button:hover{
@@ -533,7 +547,7 @@ body{
     justify-content: space-evenly;
     align-items: center;
     height: 70vh ;
-    width: 15vw;
+    width: 22vw;
 }
 
 .mainContacto .titulo p {
@@ -630,7 +644,7 @@ color: var(--fcolor);
     height: 8vh;
     border: none;
     box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.30); 
-
+    cursor: pointer;
 }
 
 .formulario .boton:hover{
@@ -724,6 +738,7 @@ color: var(--fcolor);
     font-size: 1rem;
     font-weight: 500;
     border: grey solid 1px;
+    cursor: pointer;
 }
 
 .productoGondola .precio {
@@ -744,11 +759,8 @@ color: var(--fcolor);
 }
 
 .productoGondola .btnC:active {
-    /* background-color: var(--scolor);
-    color: var(--fcolor); */
     border: solid 1px black;
     outline: none;
-    /* transition-duration: .5s; */
 }
 
 /* DESCRIPCION DE PRODUCTOS */
@@ -883,6 +895,8 @@ color: var(--fcolor);
     border: none;
     width: 60%;
     height: 15%;
+    cursor: pointer;
+
 }
 
 .carritoTotal .vaciar {
@@ -891,6 +905,7 @@ color: var(--fcolor);
     border: none;
     width: 60%;
     height: 10%;
+    cursor: pointer;
 }
  
 .cerrar {
@@ -1042,9 +1057,30 @@ footer a:hover {
     color: var(--scolor);
 }
 
+footer li{
+    margin-top: 5px;
+}
+
+footer i {
+    margin-right: 5px;
+}
+
 .mw-l {
     max-width: 80%;
     min-width: 75%;
+}
+
+
+.fa-facebook,
+.fa-instagram {
+    margin: 10px;
+    font-size: 1.8rem;
+    align-self: flex-start;
+}
+
+.redes {
+    display: flex;
+    justify-content: center;
 }
 
 
@@ -1053,39 +1089,7 @@ footer a:hover {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 468px) {
+@media (max-width: 540px) {
 
     .headerIndex {
         background-image: url('../assets/banner.jpg');
@@ -1100,8 +1104,9 @@ footer a:hover {
     .headerFarmacia {
         background-image: url('../assets/farmacia.jpg');
         background-size: cover;
-        background-position: end;
-        height: 80vh;
+        background-position: center;
+        background-position-x: right ;
+        height: 50vh;
         width: 100%;
         display: flex;
         align-items: center;
@@ -1111,7 +1116,7 @@ footer a:hover {
         background-image: url('../assets/2.jpg');
         background-size: cover;
         background-position: center;
-        height: 80vh;
+        height: 50vh;
         width: 100%;
         display: flex;
         align-items: center;
@@ -1121,13 +1126,16 @@ footer a:hover {
         background-image: url('../assets/contacto.jpg');
         background-size: cover;
         background-position: center;
-        height: 80vh;
+        height: 50vh;
         width: 100%;
         display: flex;
         align-items: center;
     }
     
-    
+    .btnNav{
+        display: none;
+    }
+
     .logo-nav {
         position: fixed;
         height: 15vh;
@@ -1137,14 +1145,14 @@ footer a:hover {
         z-index: 100;
         transition-duration: 0.5s;
         min-width: 100%;
-        justify-content: flex-end;
+        justify-content: flex-start;
         align-items: center;
         transition-duration: 1s;
     }
 
 
     .logo{
-        height: 3rem;
+        height: 5rem;
         margin-top: 2vh;
         margin-right: 5vw;
         transition-duration: 0.4s;
@@ -1155,7 +1163,7 @@ footer a:hover {
         opacity: 0;
     }
     
-    .barraNav{
+    .logo-nav .barraNav{
         display: none;
         height: 100%;
         justify-content: center;
@@ -1218,10 +1226,9 @@ footer a:hover {
     
     .scrollNav{
         position: fixed;
-        height: 8vh;
+        height: 10vh;
         width: 100%;
         display: flex;
-        align-items: center;
         padding: 2vh 5vw;
         z-index: 100;
         box-shadow: 0px 4px 3px -2px rgba(0,0,0,0.26);   
@@ -1241,9 +1248,12 @@ footer a:hover {
         transition-duration: .2s; 
     
     }
-    
+   
+
+
     .scrollNav .logo2 {
         position: absolute;
+        /* right: 10vw; */
         transition-duration: .2s; 
         opacity: 1;
         transition: 0.3s;
@@ -1254,13 +1264,41 @@ footer a:hover {
         width: 50px;
     }
     
-    .scrollNav .barraNav {
+    .scrollNav .btnNav{
+        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.2rem;
+        padding: 0;
+        margin-left: 2vw;    
+}
+
+    .scrollNav .divLogo a{
         
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .scrollNav .barraNav {
+        /* display: none; */
+        height: 10%;
+        justify-content: flex-end;
         transition-duration: 1s;
+        margin-right: 1vw;
+        transition-duration: 1s;
+    }
+
+    .scrollNav .carroTodo {
+        
+        display: flex;
+       
+
     }
     
     .scrollNav .cantCarro {
         display: flex;
+        
         justify-content: center;
         align-items: center;
         border-radius: 50%;
@@ -1273,12 +1311,12 @@ footer a:hover {
     
     .scrollNav a{
         text-decoration: none;
-        display: flex;
+        display: none;
         align-items: center;
         padding: 0 10px;
         color: black;
         font-weight: 600;
-        font-size: 1.2rem;
+        font-size: 1rem;
         transition: .6s;
     }
     
@@ -1350,10 +1388,9 @@ footer a:hover {
     .ubicacion .titulo2{
         font-size: 1.4rem;
         font-weight: 600;
-        margin-bottom: 50px;
         color: var(--fcolor);
-        text-align: center;
-        transition: 2s;
+        font-size: 1.4rem;
+      
     }
     
     .ubicacion .texto-mapa1{
@@ -1368,9 +1405,11 @@ footer a:hover {
     
     .ubicacion .texto-mapa2{
         opacity: 1;
-        margin-top: 5vh;
+        margin-top: 3vh;
         display: flex;
-        transition: 3s;
+        transition: 2.5s;
+        display: flex;
+        flex-direction: column;
     }
     
     .mapa {
@@ -1529,12 +1568,13 @@ footer a:hover {
     .farmaciayjuguetes {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
     
     .filtros {
         box-shadow: 0px 2px 15px -5px rgba(0,0,0,0.75); 
-        min-width: 25vw;
-        min-height: 20vh;
+        min-width: 80vw;
+        min-height: 30vh;
     }
     
     .farmaciayjuguetes .container {
@@ -1549,10 +1589,11 @@ footer a:hover {
     }
     
     .farmaciayjuguetes aside select {
-        align-self: flex-start;
+        align-self: center;
+
         margin-left: 1vw;
         padding: 5px;
-        width: 20vw;
+        width: 70vw;
         font-size: 1rem;
     }
     
@@ -1567,9 +1608,10 @@ footer a:hover {
     
     .mainContacto {
         display: flex;
+        min-height: 130vh;
         flex-direction: column;
         align-items: center;
-        padding: 30vh 0 30vh 0;
+        padding: 5vh 0 10vh 0;
     }
     
     .mainContacto .titulo{
@@ -1578,24 +1620,26 @@ footer a:hover {
         justify-content: space-evenly;
         align-items: center;
         height: 70vh ;
-        width: 15vw;
+        width: 90vw;
     }
     
     .mainContacto .titulo p {
-        font-size: 3.5rem;
+        font-size: 1.5rem;
+        margin-bottom: 30px;
         
     }
     
     .mainContacto h2{
-    font-size: 4.5rem;
+    font-size: 4rem;
     color: var(--fcolor);
     }
     
     .mainContacto .formulario {
-        width: 60vw;
-        height: 50vh;
+        width: 90vw;
+        height: 100vh;
         background-size: cover;
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
     }
@@ -1604,9 +1648,9 @@ footer a:hover {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
-        padding: 1vh 1vw;
-        width: 25vw;
-        height: 85vh;
+        padding: 3vh 3vw;
+        width: 85vw;
+        height: 120vh;
         transition: ease-in-out 1s;
     }
     
@@ -1640,10 +1684,11 @@ footer a:hover {
     }
     
     .formulario input {
-        padding: 10px 10px 10px 15px;
+        padding: 5px 5px 5px 10px;
         border: none;
         box-shadow: 0px 2px 15px -5px rgba(0,0,0,0.30); 
         font-size: 1rem;
+        margin: 10px 0;
     }
     
     .formulario input:hover,
@@ -1675,6 +1720,7 @@ footer a:hover {
         height: 8vh;
         border: none;
         box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.30); 
+        cursor: pointer;
     
     }
     
@@ -1698,18 +1744,17 @@ footer a:hover {
     .gondola {
         display: flex;
         flex-wrap: wrap;
-        justify-content: flex-start;  
+        justify-content: center;  
         padding-top: 20px;  
-        margin-bottom: 200px;
+        margin-bottom: 100px;
     }
     
     .gondola .productoGondola {
         position: relative;
-    
-        height: 350px;
+        height: 60vh;
         /* width: 22%; */
         /* margin: 1.5%; */
-        width: 16%;
+        min-width: 70%;
         margin: 2%;
     
         background-color: white;
@@ -1718,22 +1763,18 @@ footer a:hover {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        overflow: hidden;
-        box-shadow: 0px 1px 15px -3px rgba(0,0,0,0.15); 
-        transition: 1s;    
+        /* overflow: hidden; */
+        /* box-shadow: 0px 1px 15px -3px rgba(0,0,0,0.15);  */
+        /* transition: 1s;     */
     }
     
-    .gondola .productoGondola:hover {
-        box-shadow: 0px 1px 20px -3px rgba(0,0,0,0.40); 
-        transition: ease-in-out 0.3s;
-    }
     
     .gondola .productoGondola .img{
-        height: 70%;
+        height: 50%;
         width: 100%;
-        border-bottom: 1px solid var(--scolor);
-        display: flex;
-        justify-content: center;
+        /* border-bottom: 1px solid var(--scolor); */
+        /* display: flex; */
+        /* justify-content: center; */
     }
     
     .productoGondola .img img{
@@ -1760,19 +1801,20 @@ footer a:hover {
     
     .productoGondola .btnC {
         height: 50px;
-        width: 60%;
+        width: 50%;
+        margin-top: 10px;
         margin-bottom: 15px;
         background-color: var(--fcolor);
         border: none;
         color: white;
         border-radius: 5px;
-        font-size: 1rem;
+        font-size: .8rem;
         font-weight: 500;
         border: grey solid 1px;
     }
     
     .productoGondola .precio {
-        font-size: 1.8rem;
+        font-size: 1.3rem;
         font-size: 1000;
         color: #044240;
         
@@ -1802,8 +1844,8 @@ footer a:hover {
         visibility: hidden;    
         position: absolute;
         
-        height: 350px;
-        width: 100%;
+        height: 60vh;
+        min-width: 70%;
         color: white;
         padding: 20px 30px;
         border-radius: 5px;
@@ -1823,6 +1865,9 @@ footer a:hover {
         transition: .8s;
     }
     
+
+
+
     .gondola .espalda{
         position: absolute;
         display: flex;
@@ -1830,8 +1875,8 @@ footer a:hover {
         justify-content: space-between;
         background-color: #044240f7;
         color: white;
-        height: 350px;
-        width: 100%;
+        height: 60vh;
+        min-width: 70%;
         padding: 20px 30px;
         border-radius: 5px;
         z-index: 40;
@@ -1869,13 +1914,14 @@ footer a:hover {
     
     .carrito {
         display: none; 
+        flex-direction: column;
         position: fixed; 
         z-index: 200; 
         padding-top: 10vh; 
         left: 0;
         top: 0;
         width: 100%;
-        height: 100%; 
+        min-height: 100%; 
         overflow: auto; 
         background-color: rgb(0,0,0); 
         background-color: rgba(0,0,0,0.4);
@@ -1887,28 +1933,30 @@ footer a:hover {
     .carrito-content {
         background-color: #fefefef5;
         position: relative;
-        /* margin: auto; */
-        margin: 0 0 0 10vw;
+
+        margin: auto;
         padding: 20px;
         border: 1px solid #888;
         border-radius: 5px;
-        width: 50%;
+        width: 90vw;
         display: flex;
         flex-direction: column;
         min-height: 70vh;
     }
     
     .carritoTotal {
-        position: absolute;
-        top: 10vh;
-        right: 10vw;
-        width: 25vw;
+        position: relative;
+        top: 2vh;
+        
+        right: auto;
+        width: 90vw;
         height: 40vh;
         background-color: #fefefef5;
         border-radius: 5px;
+        margin: 5vh auto;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: center;
         align-items: center;
     }
     
@@ -1936,6 +1984,7 @@ footer a:hover {
         border: none;
         width: 60%;
         height: 10%;
+        cursor: pointer;
     }
      
     .cerrar {
@@ -1973,22 +2022,24 @@ footer a:hover {
     }
     
     .prodComprado .nombreEnCarrito {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .img-enCarrito {
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: white;
-        width: 35%;
+        width: 40%;
         height: 100%;
     }
     
     .img-enCarrito .imagen {
         background-size: cover;
         background-position: center;
+        background-repeat: no-repeat;
         width: 70%;
-        height: 100%;
+        height: 70%;
     }
     
     .prodComprado .textos {
@@ -2000,7 +2051,7 @@ footer a:hover {
     }
     
     .prodComprado .precioEnCarro{
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .prodComprado .cant-borrar {
@@ -2014,7 +2065,7 @@ footer a:hover {
     
     .prodComprado .cantidadArt {
         display: flex;
-        width: 50%;
+        width: 20vw;
         justify-content: space-between;
         border: var(--fcolor) solid 1px;
         border-radius: 5px;
@@ -2035,10 +2086,11 @@ footer a:hover {
     }
     
     .prodComprado .btnEliminarCarro {
-        width: 50%;
+        width: 20vw;
         border: none;
         background-color: var(--scolor);
         border-radius: 5px;
+        /* margin-top: 20px; */
         font-size: inherit;
         /* height: 15%; */
     }
@@ -2051,61 +2103,126 @@ footer a:hover {
     /* ------------------------------------------------------------------------------------------------------FOOTER */
     
     footer {
-        height: 50vh;
+        height: 70vh;
         width: 100vw;
         background-color: var(--fcolor);
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        align-items: center
+        align-items: center;
         
     }
 
     .piePag{
         max-width: 95vw;
-    }
-    .divFooter {
         display: flex;
-        justify-content: space-between;
-
+        flex-direction: column;
+        margin-top: 20px;
     }
+
     footer div {
         display: flex;
-        /* flex-direction: column; */
-        justify-content: space-between;
         font-size: .8rem;
-    
+        text-align: center;
     }
-    
-    footer div * {
-        color: white;
-        list-style: none;
-    
+
+    footer ul {
+        margin-bottom: 20px;
     }
-    
-    footer {
-        color: white;
-    }
-    
+
+
     footer span {
         font-size: .8rem;
     }
    
 
-    footer a {
-        text-decoration: none;
+   
+    /* .navResponsive2{} */
+
+    .modalResponsive1 {
+        visibility: hidden;
+        background-color: #00000099;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 500;
+        transition: .5s;
+    }
+
+    .navResponsive1 {
+        width: 0;
+        height: 100%;
+        background-color: var(--scolor);
+        z-index: 600;
+        transition: .5s;
+        padding-top: 50px;
+
+    }
+    .closeResponsive1 {
+        visibility: hidden;   
+
+    }
+
+    .navResponsive1 a{
+        visibility: hidden;
+    }
+
+    .modalResponsive2 {
+        visibility: visible;
+        background-color: #00000099;
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        z-index: 500;
+        transition: .1s;
     }
     
-    footer a:hover {
-        text-decoration: none;
-        color: var(--scolor);
+    .navResponsive2 {
+        /* visibility: visible; */
+        width: 85%;
+        height: 100%;
+        background-color:var(--scolor);
+        z-index: 600;
+        transition: .5s;
+        display: flex;
+        flex-direction: column;
+        padding-top: 50px;
     }
-    
 
-    
+    .closeResponsive2{
+        visibility: visible;
+        position: absolute;
+        font-size: 2.5rem;
+        font-weight: 1000;
+        top: 0;
+        color: var(--fcolor);
+        right: 18vw;
+        transition-delay: 1s;
+        transition: 1s;
+
+    }
+    .navResponsive2 a {
+        /* padding: 20px 10px 20px 10px;   */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15%;
+        width: 100%;
+        text-align: center;  
+        font-size: 1.7rem;
+        text-decoration: none;
+        color: var(--fcolor);
+        font-weight: 700;
+        /* border: white solid 1px; */
+    }
+    /* .closeResponsive1 {
+
+    } */
 
 
-
+    .navResponsive2 a:active{
+        font-size: 2rem
+    }
 
 
 

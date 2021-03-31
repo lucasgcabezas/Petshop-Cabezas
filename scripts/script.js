@@ -11,7 +11,7 @@ window.addEventListener("scroll", () => {
     } else if (document.getElementById('mainIndex')) {
         document.getElementById("tituloUbi").className = ("titulo1")
     }
-    if (window.scrollY > 1600 && document.getElementById('mainIndex')) {
+    if (window.scrollY > 1400 && document.getElementById('mainIndex')) {
         document.getElementById("mapa").className = ("texto-mapa2")
     } else if (document.getElementById('mainIndex')) {
         document.getElementById("mapa").className = ("texto-mapa1")
@@ -45,7 +45,6 @@ function iniciarPrograma(todosLosProductos) {
     function guardarStorage() {
         if (carrito.length == 0) {
             localStorage.removeItem('carritoStorage')
-
         }
         localStorage.setItem('carritoStorage', JSON.stringify(carrito))
     }
@@ -53,6 +52,17 @@ function iniciarPrograma(todosLosProductos) {
     if (localStorage.getItem('carritoStorage')) {
         carrito = JSON.parse(localStorage.getItem('carritoStorage'))
     }
+
+    document.getElementById('btnNav').addEventListener('click',(e) => {
+        document.getElementById('modalResponsive').className = 'modalResponsive2'
+        document.getElementById('navResponsive').className = 'navResponsive2'
+        document.getElementById('closeResponsive').className = 'closeResponsive2'
+    })
+    document.getElementById('closeResponsive').addEventListener('click',(e) => {
+        document.getElementById('modalResponsive').className = 'modalResponsive1'
+        document.getElementById('navResponsive').className = 'navResponsive1'
+        document.getElementById('closeResponsive').className = 'closeResponsive1'
+    })
 
     situacionCarrito()
     mostrarTotalCarro()
@@ -69,6 +79,7 @@ function iniciarPrograma(todosLosProductos) {
     // IMPRESION DE CARRITO EN MODAL
     function situacionCarrito() {
         if (carrito.length == 0) {
+            document.getElementById('carrito').innerHTML = `<p class="carroVacio">El carrito de compras está vacio.</p>`
             document.getElementById('cantCarroNav').innerHTML = ''
         } else {
             mostrarCarrito(carrito)
@@ -82,7 +93,7 @@ function iniciarPrograma(todosLosProductos) {
         var carritoModal = document.getElementById("ventanaCarrito")
         var btn = document.getElementById("botonCarro")
         var span = document.getElementById("cerrar")
-        document.getElementById('carrito').innerHTML = `<p class="carroVacio">El carrito de compras está vacio.</p>`
+        
 
         btn.addEventListener('click', (e) => {
             e.preventDefault()

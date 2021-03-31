@@ -17,7 +17,7 @@
     <!-- ICONOS FOOTER -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Contacto</title>
+    <title>Contacto - Franco Pet-Shop</title>
 </head>
 
 <body>
@@ -29,21 +29,22 @@
             </a>
         </div>
         <nav class="barraNav">
-            <a href="../index.html">Home</a>
+            <a href="../index.html">Inicio</a>
             <a href="./farmacia.html">Farmacia</a>
             <a href="./juguetes.html">Juguetes</a>
             <a href="#">Contacto</a>
-            <a href="" id="botonCarro"><img class="carroC" src="../assets/carrito.png" alt="">
+            <a href="" id="botonCarro" class="carroTodo"><img class="carroC" src="../assets/carrito.png" alt="">
                 <div class="cantCarro" id="cantCarroNav"></div>
             </a>
+            <div class="btnNav" id="btnNav">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </div>
 
     <div id="ventanaCarrito" class="carrito">
-
         <div class="carrito-content">
             <div id="carrito">
-
             </div>
         </div>
         <div class="carritoTotal">
@@ -57,13 +58,29 @@
 
 
     <header class="headerContacto">
+                <!-- FOTO DE CABECERA -->
     </header>
+
+    <!-- MENU RESPONSIVE  -->
+    <div class="modalResponsive1" id="modalResponsive">
+        <div class="navResponsive1" id="navResponsive">
+            <div class="closeResponsive1" id="closeResponsive">&times;</div>
+            <a href="../index.html">Inicio</a>
+            <a href="./farmacia.html">Farmacia</a>
+            <a href="./juguetes.html">Juguetes</a>
+            <a href="#">Contacto</a>
+        </div>
+    </div>
+
+
+
+
 
     <main class="mainContacto" id="mainContacto">
         <div class="formulario">
             <div class="titulo">
                 <h2>Contacto</h2>
-                <p>Contanos acerca de tu mascota!</p>
+                <p>Contanos acerca de<br> tu mascota!</p>
             </div>
             <form action="" id="formulario">
                 <input type="text" placeholder="Nombre" id="nombre" required>
