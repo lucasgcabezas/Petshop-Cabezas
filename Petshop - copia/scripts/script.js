@@ -1,7 +1,6 @@
 
 // EVENTO DE BARRA NAV
 window.addEventListener("scroll", () => {
-    console.log(window.scrollY)
     window.scrollY > 100
         ? document.getElementById("navbar").className = ("scrollNav")
         : document.getElementById("navbar").className = ("logo-nav")
@@ -12,7 +11,7 @@ window.addEventListener("scroll", () => {
     } else if (document.getElementById('mainIndex')) {
         document.getElementById("tituloUbi").className = ("titulo1")
     }
-    if (window.scrollY > 1400 && document.getElementById('mainIndex')) {
+    if (window.scrollY > 1500 && document.getElementById('mainIndex')) {
         document.getElementById("mapa").className = ("texto-mapa2")
     } else if (document.getElementById('mainIndex')) {
         document.getElementById("mapa").className = ("texto-mapa1")
@@ -29,20 +28,16 @@ async function importarApi() {
     iniciarPrograma(copiaData)
 }
 
-// INICIA EL PROGRAMA GENERAL
+// INICIA EL PROGRAMA DE TODA LA WEB
 function iniciarPrograma(todosLosProductos) {
 
     todosLosProductos.map(p => p.cantidadCarro = 0)
     todosLosProductos.map(p => p.precioCarro = p.precio)
 
     let carrito = []
-    var farmacia = todosLosProductos.filter(prod => prod.tipo == "Medicamento")
-    var juguetes = todosLosProductos.filter(prod => prod.tipo == "Juguete")
+    const farmacia = todosLosProductos.filter(prod => prod.tipo == "Medicamento")
+    const juguetes = todosLosProductos.filter(prod => prod.tipo == "Juguete")
 
-    document.getElementById('vaciarCarro').addEventListener('click', () => vaciarCarrito())
-    document.getElementById('finalizarCompra').addEventListener('click', () => finalizarCompra())
-
-    // GUARDAR CARRITO EN LOCALSTORAGE
     function guardarStorage() {
         if (carrito.length == 0) {
             localStorage.removeItem('carritoStorage')
@@ -54,19 +49,10 @@ function iniciarPrograma(todosLosProductos) {
         carrito = JSON.parse(localStorage.getItem('carritoStorage'))
     }
 
-    // -----------------------------------------------------------------------------------HACER FUNCIONAL
-
-    document.getElementById('btnNav').addEventListener('click', (e) => {
-        document.getElementById('modalResponsive').className = 'modalResponsive2'
-        document.getElementById('navResponsive').className = 'navResponsive2'
-        document.getElementById('closeResponsive').className = 'closeResponsive2'
+    document.getElementById('vaciarCarro').addEventListener('click', () => {
+        vaciarCarrito()
     })
-    document.getElementById('closeResponsive').addEventListener('click', (e) => {
-        document.getElementById('modalResponsive').className = 'modalResponsive1'
-        document.getElementById('navResponsive').className = 'navResponsive1'
-        document.getElementById('closeResponsive').className = 'closeResponsive1'
-    })
-
+    
     situacionCarrito()
     mostrarTotalCarro()
     mostrarModal()
@@ -80,10 +66,10 @@ function iniciarPrograma(todosLosProductos) {
     }
 
     // IMPRESION DE CARRITO EN MODAL
-    function situacionCarrito() {
+    function situacionCarrito(){
         if (carrito.length == 0) {
-            document.getElementById('carrito').innerHTML = `<p class="carroVacio">El carrito de compras está vacio.</p>`
             document.getElementById('cantCarroNav').innerHTML = ''
+            document.getElementById('carrito').innerHTML = `<p class="carroVacio">El carrito de compras está vacio.</p>`
         } else {
             mostrarCarrito(carrito)
             mostrarCantCarro()
@@ -94,7 +80,7 @@ function iniciarPrograma(todosLosProductos) {
     function mostrarModal() {
 
         var carritoModal = document.getElementById("ventanaCarrito")
-        var btn = document.getElementById("botonCarro")
+        var btn = document.getElementById("myBtn")
         var span = document.getElementById("cerrar")
 
 
@@ -115,48 +101,22 @@ function iniciarPrograma(todosLosProductos) {
         })
     }
 
-    // MOSTRAR PRODUCTOS EN INDEX
-    function mostrarIndex(arrayProductos) {
-        document.getElementById('btnTienda').setAttribute("href", Math.ceil(Math.random() * 10) % 2 == 0 ? './pages/juguetes.html' : './pages/farmacia.html')
-        let productosRandom = []
-        arrayProductos.map(p => {
-            let numeroRandom = Math.ceil(Math.random() * 10)
-            if (productosRandom.length < 5 && !productosRandom.includes(arrayProductos[numeroRandom])) {
-                productosRandom.push(arrayProductos[numeroRandom])
-            }
-        })
-        productosRandom.map((producto) => {
-            const elemento = document.createElement('a')
-            elemento.setAttribute("href", producto.tipo == "Juguete" ? './pages/juguetes.html' : './pages/farmacia.html')
-            elemento.className = "productoIndex"
-            elemento.innerHTML = `      
-        <p class="nombre">${producto.nombre}</p>
-        <div class="img" id="img${producto._id}"></div>
-        <p class="precio">$ ${(producto.precio).toFixed(2)}</p>
-        `
-            document.getElementById('muestra').appendChild(elemento)
-            document.getElementById("img" + producto._id).style.backgroundImage = `url("${producto.imagen}")`
-        })
-    }
-
     // --MOSTRAR GONDOLA EN FARMACIA Y JUGUETES
     function mostrarGondola(categoria) {
-        document.querySelector("#gondola").innerHTML = ''
-
         categoria.map((producto) => {
             let textoStock
             producto.stock == 1 ? textoStock = `Ultima unidad` : textoStock = `Ultimas ${producto.stock} unidades`
 
             // -- Div tarjeta de producto
-
             const elemento = document.createElement('div')
             elemento.className = "productoGondola cara"
             elemento.innerHTML = `
-                <div class="img" id="imgG${producto._id}">
+                <div class="img">
+                    <img src="${producto.imagen}" alt="${producto.nombre}">
                 </div>
                 <div class="texto">
                     <span>${producto.nombre}</span>
-                    <a href="" class="btnDescripcion" id="btnDescripcion${producto._id}">Ver más...</a>
+                    <a href="" id="btnDescripcion${producto._id}">Ver más...</a>
                 </div>
                 <span class="precio">$ ${(producto.precio).toFixed(2)}</span>
                 <button class="btnC" id="btnC${producto._id}">Agregar al carrito</button>
@@ -165,15 +125,10 @@ function iniciarPrograma(todosLosProductos) {
 
                 <div class="espaldaNo" id="espalda${producto._id}">
                     <div class="descripcion"><p>${producto.descripcion}</p></div>
-                    <a href="" id="volver${producto._id}">Cerrar</a>
+                    <a href="" id="volver${producto._id}">Volver</a>
                 <div>
             `
             document.querySelector("#gondola").appendChild(elemento)
-
-            document.getElementById("imgG" + producto._id).style.backgroundImage = `url("${producto.imagen}")`
-            // <img src="${producto.imagen}" alt="${producto.nombre}">
-
-
 
             // --Cartel de ultimas unicades
             if (producto.stock < 6 && producto.stock > 0) { document.getElementById("stock" + producto._id).style.display = 'block' }
@@ -192,18 +147,11 @@ function iniciarPrograma(todosLosProductos) {
             // --Boton comprar
             document.getElementById("btnC" + producto._id).addEventListener('click', () => {
                 if (!carrito.includes(producto)) {
-                    tata.text('¡Excelente!', `Agregaste ${producto.nombre} al carrito.`, {
-                        position: 'tr',
-                        duration: 2500,
-                    })
-
                     producto.cantidadCarro++
                     // localStorage.getItem('carrito').push(producto)
                     carrito.push(producto)
 
-
-
-                } else if (producto.cantidadCarro < producto.stock) {
+                } else {
                     producto.cantidadCarro++
                     producto.precioCarro = producto.precio * producto.cantidadCarro
                 }
@@ -216,10 +164,35 @@ function iniciarPrograma(todosLosProductos) {
         })
     }
 
+    // MOSTRAR PRODUCTOS EN INDEX
+    function mostrarIndex(arrayProductos) {
+        document.getElementById('btnTienda').setAttribute("href", Math.ceil(Math.random() * 10) % 2 == 0 ? './pages/juguetes.html' : './pages/farmacia.html')
+        let productosRandom = []
+        arrayProductos.map(p => {
+            let numeroRandom = Math.ceil(Math.random() * 10)
+            if (productosRandom.length < 5 && !productosRandom.includes(arrayProductos[numeroRandom])) {
+                productosRandom.push(arrayProductos[numeroRandom])
+            }
+        })
+        productosRandom.map((producto) => {
+            const elemento = document.createElement('a')
+            elemento.setAttribute("href", producto.tipo == "Juguete" ? './pages/juguetes.html' : './pages/farmacia.html')
+            elemento.className = "productoIndex"
+            elemento.innerHTML = `      
+            <p class="nombre">${producto.nombre}</p>
+            <div class="img" id="img${producto._id}"></div>
+            <p class="precio">$ ${(producto.precio).toFixed(2)}</p>
+            `
+            document.getElementById('muestra').appendChild(elemento)
+            document.getElementById("img" + producto._id).style.backgroundImage = `url("${producto.imagen}")`
+        })
+    }
+
     // VALIDACION DE FORMULARIO CONTACTO
     function validarForm() {
         document.querySelector('#formBtn').addEventListener('click', (e) => {
-            // -----------------------------------------------------------------------------------------------------------------HACER FUNCIONAL
+
+
             // validar nombre con numeros
             let nombre = document.getElementById('nombre').value
             let nombreArray = Array.from(nombre)
@@ -255,8 +228,6 @@ function iniciarPrograma(todosLosProductos) {
                     return apellidoVerificado = false
                 }
             })
-
-
 
             // Validar campos completados
             if ((nombre.length == 0
@@ -296,7 +267,7 @@ function iniciarPrograma(todosLosProductos) {
                     <div class="imagen" id="imgCarrito${producto._id}"></div>
                 </div>
                 <div class="textos">
-                    <span class="nombreEnCarrito">${producto.nombre}</span>
+                    <span >${producto.nombre}</span>
                 </div>
                 <div class="cant-borrar">
                     <span>Cantidad:</span>
@@ -322,7 +293,7 @@ function iniciarPrograma(todosLosProductos) {
                         situacionCarrito()
                         document.getElementById('totalCarrito').innerHTML = ""
 
-                    } else if (e.target.dataset.accion === 's' && producto.cantidadCarro < producto.stock) {
+                    } else if (e.target.dataset.accion === 's') {
                         producto.cantidadCarro++
                         producto.precioCarro = producto.precio * producto.cantidadCarro
                         guardarStorage()
@@ -330,6 +301,7 @@ function iniciarPrograma(todosLosProductos) {
                     } else if (e.target.dataset.accion === 'r' && producto.cantidadCarro > 1) {
                         producto.cantidadCarro--
                         producto.precioCarro = producto.precio * producto.cantidadCarro
+
                     }
                     guardarStorage()
                     mostrarCarrito(carrito)
@@ -358,70 +330,26 @@ function iniciarPrograma(todosLosProductos) {
         }
     }
 
-    // VACIAR CARRITO
+    // VACIAR CARRO
     function vaciarCarrito() {
         carrito.map((p) => {
             p.cantidadCarro = 0
             p.precioCarro = p.precio
         })
-        tata.text('Vaciaste el carrito', `¡Muchas gracias por visitarnos!`, {
-            position: 'tr',
-            duration: 2500,
-        })
-        limpiarCarro()
-    }
-
-    // FINALIZAR COMPRA
-    function finalizarCompra() {
-        if (carrito.length >= 1) {
-            tata.success(`¡Excelente!`, '¡Tu compra fue realizada con exito!', {
-                position: 'tr',
-                duration: 3000,
-            })
-            limpiarCarro()
-        } else {
-            tata.error(`Error`, 'El carrito no contiene productos.', {
-                position: 'tr',
-                duration: 3000,
-            })
-        }
-    }
-
-    // LIMPIAR CARRITO
-    function limpiarCarro() {
         guardarStorage()
         carrito = []
         guardarStorage()
         localStorage.removeItem('carritoStorage')
         document.getElementById('carrito').innerHTML = ""
-        document.getElementById('carrito').innerHTML = `<p class="carroVacio">El carrito de compras está vacio.</p>`
         document.getElementById('cantCarroNav').innerHTML = ""
         document.getElementById('totalCarrito').innerHTML = ""
-    }
-
-    // FILTROS DE GONDOLA
-    function filtrarProductos(productosFiltrar) {
-        var selector = document.getElementById('selectorFiltro')
-        var productosTest = [...productosFiltrar]
-        var productosFiltrados = productosFiltrar
-        selector.addEventListener('change', () => {
-            if (selector.value === "normal") {
-                productosTest == farmacia ? productosFiltrados = farmacia : productosFiltrados = productosTest
-            } else if (selector.value === "barato") {
-                productosFiltrados = productosFiltrar.sort((a, b) => a.precio - b.precio)
-            } else if (selector.value === "caro") {
-                productosFiltrados = productosFiltrar.sort((a, b) => b.precio - a.precio)
-            }
-            mostrarGondola(productosFiltrados)
-        })
+        console.log(carrito)
     }
 
     // --DISTRIBUCION DE FUNCIONES POR PAGINA
     if (document.getElementById('mainFarmacia')) {
-        filtrarProductos(farmacia)
         mostrarGondola(farmacia)
     } else if (document.getElementById('mainJuguetes')) {
-        filtrarProductos(juguetes)
         mostrarGondola(juguetes)
     } else if (document.getElementById('mainIndex')) {
         mostrarIndex(todosLosProductos)
@@ -467,6 +395,67 @@ function iniciarPrograma(todosLosProductos) {
 
 
 
+            // HACER UNA FUNCION DE LAS DOS VERIFICACIONES----------------------------------------
+
+            // hola('nombre',nombreVerificado)
+            // hola('apellido',apellidoVerificado)
+
+            // function hola (idInput,verificado){
+
+            //     let valueInput = document.getElementById( idInput ).value
+            //     let valueArray = Array.from(valueInput)
+            //     verificado = true
+            //     valueArray.map(l => {
+            //         let numeroLetra = parseInt(l)
+            //         if (numeroLetra >= 0 && numeroLetra <= 9) {
+            //             e.preventDefault()
+            //             tata.error('Error', 'Debes ingresar un nombre que no contenga numeros', {
+            //                 position: 'tr',
+            //                 duration: 3500,
+            //             })
+            //             valueInput = ""
+            //             document.getElementById('formulario').reset()
+            //             return verificado = false
+            //         }
+            //     })
+
+
+            // }
+
+
+            // let nombre = document.getElementById('nombre').value
+            // let nombreArray = Array.from(nombre)
+            // let nombreVerificado = true
+            // nombreArray.map(l => {
+            //     let numeroLetra = parseInt(l)
+            //     if (numeroLetra >= 0 && numeroLetra <= 9) {
+            //         e.preventDefault()
+            //         tata.error('Error', 'Debes ingresar un nombre que no contenga numeros', {
+            //             position: 'tr',
+            //             duration: 3500,
+            //         })
+            //         nombre = ""
+            //         document.getElementById('formulario').reset()
+            //         return nombreVerificado = false
+            //     }
+            // })
+
+            // let apellido = document.getElementById('apellido').value
+            // let apellidoArray = Array.from(apellido)
+            // let apellidoVerificado = true
+            // apellidoArray.map(l => {
+            //     let numeroLetra = parseInt(l)
+            //     if (numeroLetra >= 0 && numeroLetra <= 9) {
+            //         e.preventDefault()
+            //         tata.error('Error', 'Debes ingresar un apellido que no contenga numeros', {
+            //             position: 'tr',
+            //             duration: 3500,
+            //         })
+            //         apellido = ""
+            //         document.getElementById('formulario').reset()
+            //         return apellidoVerificado = false
+            //     }
+            // })
 
 
 
@@ -516,3 +505,106 @@ function iniciarPrograma(todosLosProductos) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// let productoMostrar = 0
+
+// const productos = ["Heladera", "Licuadora", "Horno", "Tv"]
+
+// function imprimir() {
+//     document.getElementById("producto").innerHTML = `${productos[productoMostrar]}`
+//     productoMostrar ++
+//     if (productoMostrar === productos.length){  productoMostrar = 0 }
+
+// }
+
+//     productos.map((producto)=>{
+
+//     }) 
+// setInterval(imprimir, 1000);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     let elems = document.querySelectorAll('.dropdown-trigger');
+//     M.Dropdown.init(elems, {
+//         coverTrigger: false,
+//         closeOnClick: true,
+//         hover: true,
+//         constrainWidth: true,
+//         // container = document.getElementById('container')
+//     });
+// });
+
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     let elems = document.querySelectorAll('.sidenav');
+//     M.Sidenav.init(elems);
+// });
+
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     let elems = document.querySelectorAll('.collapsible');
+//     M.Collapsible.init(elems);
+// });
+
+
+
+
+// // <!-- SLIDE FOTOS ARREGLADO  -->
+
+// document.addEventListener('DOMContentLoaded', function () {
+//     let elems = document.querySelectorAll('.carousel');
+//     M.Carousel.init(elems, {
+//         fullWidth: true,
+//     });
+//     autoplay()
+//     function autoplay() {
+//         setTimeout(() => {
+//             M.Carousel.getInstance(elems[0]).next();
+//             autoplay()
+//         }, 6000);
+//     }
+// });
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     var elems = document.querySelectorAll('.modal');
+//     M.Modal.init(elems);
+//   });
