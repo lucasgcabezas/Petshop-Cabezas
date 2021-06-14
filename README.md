@@ -24,5 +24,3 @@ Pagina web desarrollada como parte del programa de programacion web Full Stack r
 * [JavaScript](https://www.javascript.com/) - Lenguaje de Frontend
 * [CSS3](https://developer.mozilla.org/es/docs/Web/CSS) - Lenguaje de estilos
 
-# Autor ✒️
-* **Lucas Cabezas** - [Lucas](https://github.com/lucasgcabezas)
